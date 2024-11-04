@@ -5,7 +5,7 @@ export default {
     mainBackground: '#000000', // Black for a deep background
     textColorInverted: '#FFFFFF', // White text for contrast against dark background
     primarybackground: '#3B0764', // A darker primary background color
-    primarythemecolor: '#9333EA',
+    primarythemecolor: '#0D1148',
     primary50: '#3B0764',
     primary100: '#581C87',
     primary200: '#6B21A8',

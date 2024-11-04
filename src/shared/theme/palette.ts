@@ -16,6 +16,7 @@ export const palette = {
   primary1150: '#6393F2',
   primaryColor: '#9333EA',
   transparent: 'transparent',
+  splashScreenColor:"#080A22",
 
   success50: '#F0FDFA',
   success100: '#CCFBF1',

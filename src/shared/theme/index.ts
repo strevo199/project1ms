@@ -78,10 +78,10 @@ const lightTheme = createTheme({
   colors: {
     ...palette,
     imageBackgroundTint: '#FAF5FF',
-    mainBackground: '#FFFFFF',     
-    textColorInverted: '#1F2937',    
-    primarybackground: '#FAF5FF', 
-    primarythemecolor: '#9333EA',   
+    mainBackground: '#FFFFFF',
+    textColorInverted: '#1F2937',
+    primarybackground: '#FAF5FF',
+    primarythemecolor: '#0D1148',
   },
 
   fontSizes: {
