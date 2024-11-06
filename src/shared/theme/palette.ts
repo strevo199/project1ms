@@ -1,20 +1,18 @@
 export const palette = {
-  primary50: '#FAF5FF',
-  primary100: '#F3E8FF',
-  primary200: '#E9D5FF',
-  primary300: '#D8B4FE',
-  primary400: '#C084FC',
-  primary500: '#A855F7',
-  primary600: '#9333EA',
-  primary700: '#7E22CE',
-  primary800: '#6B21A8',
-  primary900: '#581C87',
-  primary950: '#3B0764',
-  primary1000: '#5B21B6',
-  primary1050: '#3B82F6',
-  primary1100: '#EFF6FF',
-  primary1150: '#6393F2',
-  primaryColor: '#9333EA',
+  primary50: '#E2E4EC',     // Lightest shade, based on new primary
+  primary100: '#C5C9D8',
+  primary200: '#A9AEC4',
+  primary300: '#8D92AF',
+  primary400: '#71769B',
+  primary500: '#555A86',     // Middle ground, close to primary
+  primary600: '#383F72',
+  primary700: '#1C245D',
+  primary800: '#111940',     // Darker shades for contrast
+  primary900: '#0B102C',
+  primary950: '#080A22',     // New primary color
+  primary1000: '#06071B',    // Darkest shade
+
+  primaryColor: '#080A22',  
   transparent: 'transparent',
   splashScreenColor:"#080A22",
 
