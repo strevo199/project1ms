@@ -4,6 +4,8 @@
  */
 
 import { TextInputProps } from "react-native";
+import { BoxProps } from "../layout/Box";
+import { TextProps } from "@shared/Typography";
 
 
 type SimpleInputProps = TextInputProps & {
@@ -17,8 +19,8 @@ type SimpleInputProps = TextInputProps & {
     hasToolTip?: boolean;
     editable?: boolean;
     keyboardType?: TextInputProps["keyboardType"];
-    inputBoxProps?: string;
-    labelProps?: string;
+    inputBoxProps: BoxProps;
+    labelProps?: TextProps;
     onFocus?: () => void;
     errorMessage?: null | undefined | string | boolean;
     onBlur?:

@@ -4,7 +4,7 @@
  */
 
 import { StyledProps } from "nativewind";
-import { BoxProps } from "../Layout/Box";
+import { BoxProps } from "../layout/Box";
 import { TextProps } from "@shared/Typography";
 
 interface PrimaryButtonProps extends StyledProps<ViewProps> {

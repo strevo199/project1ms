@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParameterList } from './types';
-import SplashScreen from '@shared/components/Layout/SplashScreen';
-import LandingScreen from '@shared/components/Layout/LandingScreen';
+import SplashScreen from '@shared/components/layout/SplashScreen';
+import LandingScreen from '@shared/components/layout/LandingScreen';
 
 
 const Stack = createNativeStackNavigator<RootStackParameterList>();

@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { Text } from './shared/Typography';
-import { Box } from './shared/components/Layout/Box';
 import { ThemeProvider } from '@shopify/restyle';
 import theme from './shared/theme';
 import SplashScreen from 'react-native-splash-screen';

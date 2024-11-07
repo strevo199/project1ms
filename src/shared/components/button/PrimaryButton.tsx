@@ -14,7 +14,7 @@ import {
 
 import { PrimaryButtonProps } from './type';
 import { palette } from '@shared/theme/palette';
-import { Box } from '../Layout/Box';
+import { Box } from '../layout/Box';
 import { Text } from '@shared/Typography';
 
 
@@ -103,17 +103,16 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       disabled={disabled || isLoading}
       style={{
   alignSelf: btnalign,
-  paddingHorizontal: 10,
   paddingVertical: 5,
 }}
       onPress={onPress}
       {...touchableOpacityProps}>
       <Box
-      backgroundColor={isLoading ? 'primary400' : 'primaryColor'} borderRadius={'xl'} flexDirection={'row'} justifyContent={'center'} alignItems={"center"} height={48}
+      backgroundColor={isLoading ? 'primary400' : "textColorInverted"} borderRadius={'xl'} flexDirection={'row'} justifyContent={'center'} alignItems={"center"} height={48}
       {...btnBoxProps}
       >
         {!isLoading ?
-          <Text variant={'bold20'} color={'default100'} {...btnTitleProps} >
+          <Text variant={'medium16'} color={'default100'} {...btnTitleProps} >
             {title}
           </Text>
           :

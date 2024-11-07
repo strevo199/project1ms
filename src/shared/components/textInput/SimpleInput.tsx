@@ -10,13 +10,14 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { ImageIcon } from "@/src/assets/icons/ImageIcon";
-import NewErrorText from "@core/utilities/Error/NewErrorText";
-import { triggerShakeAnimation } from "@core/utilities/triggerShakeAnimation";
 
-import { Box } from "../layout/Box";
-import { MediumText } from "../Typography";
 import { SimpleInputProps } from "./type";
+import { Box } from "../layout/Box";
+import { Text } from "@shared/Typography";
+import { palette } from "@shared/theme/palette";
+import { ImageIcon } from "@assets/icons/ImageIcon";
+import { triggerShakeAnimation } from "@shared/utilities/triggerShakeAnimation";
+import NewErrorText from "@shared/utilities/Error/NewErrorText";
 
 
 
@@ -63,7 +64,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
   };
   const borderColor = borderColorAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#d1d5db', '#a855f7'], // Grey when not focused, Purple when focused
+    outputRange: ['#d1d5db', palette.primaryColor], // Grey when not focused, Purple when focused
   });
 
   const animValue = useRef(new Animated.Value(0)).current;
@@ -75,24 +76,24 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
 
   useEffect(() => {
     if (value?.trim()) {
-      setlabelShifting("top-1 text-xxs");
+      // setlabelShifting("top-1 text-xxs");
     }
   }, [value])
 
   const bColor = useMemo(
-    () => (errorMessage ? "#ef4444"  : "#d1d5db"),
+    () => (errorMessage ? palette.danger  :palette.secondary500),
     [errorMessage],
   );
 
   return (
-    <Box className=" mb-4">
-       <Animated.View style ={{borderColor: errorMessage ? bColor : borderColor }} className={` relative mb-1  rounded-2xl   border-1`}>
-        <MediumText
+    <Box marginBottom={"md"} >
+       <Animated.View style ={{position:"relative",borderWidth:1, borderRadius:16,marginBottom:1,borderColor: errorMessage ? bColor : borderColor }} >
+        {/* <Text
           className={` absolute left-4  text-secondary-400 ${labelShifting} ${labelProps}`}>
           {label}
-        </MediumText>
+        </Text> */}
         {/* </Box> */}
-        <Box className={`${inputBoxProps}`}>
+        <Box {...inputBoxProps}>
           <TextInput
             ref={ref}
             secureTextEntry={showPassword}
@@ -106,7 +107,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
             }}
             onFocus={() => {
               handleFocus();
-              setlabelShifting("top-1 text-xxs");
+              // setlabelShifting({"top:1 text-xxs"});
               onFocus();
             }}
             value={value}
