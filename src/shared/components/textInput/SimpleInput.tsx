@@ -3,30 +3,30 @@
  * For license. See license.txt
  */
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
   TextInput,
   TouchableOpacity,
-} from "react-native";
+} from 'react-native';
 
 
-import { SimpleInputProps } from "./type";
-import { Box } from "../layout/Box";
-import { Text } from "@shared/Typography";
-import { palette } from "@shared/theme/palette";
-import { ImageIcon } from "@assets/icons/ImageIcon";
-import { triggerShakeAnimation } from "@shared/utilities/triggerShakeAnimation";
-import NewErrorText from "@shared/utilities/Error/NewErrorText";
+import { SimpleInputProps } from './type';
+import { Box } from '../layout/Box';
+import { Text } from '@shared/Typography';
+import { palette } from '@shared/theme/palette';
+import { ImageIcon } from '@assets/icons/ImageIcon';
+import { triggerShakeAnimation } from '@shared/utilities/triggerShakeAnimation';
+import NewErrorText from '@shared/utilities/Error/NewErrorText';
 
 
 
 const SimpleInput: React.FC<SimpleInputProps> = ({
   inputProps,
   isPassword,
-  value = "",
+  value = '',
   onChangeText,
-  keyboardType = "default",
+  keyboardType = 'default',
   labelProps,
   label,
   onFocus = () => {
@@ -38,13 +38,13 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
   },
   maxLength,
   placeholder,
-  placeholderTextColor = "#9CA3AF",
+  placeholderTextColor = '#9CA3AF',
   inputBoxProps,
   editable,
 }) => {
   const ref = React.useRef<TextInput>(null);
   const [showPassword, setShowPassword] = useState(isPassword);
-  const [labelShifting, setlabelShifting] = useState("top-5 text-sm");
+  const [labelShifting, setlabelShifting] = useState(false);
   const borderColorAnim = useRef(new Animated.Value(0)).current;
 
   const handleFocus = () => {
@@ -64,7 +64,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
   };
   const borderColor = borderColorAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#d1d5db', palette.primaryColor], // Grey when not focused, Purple when focused
+    outputRange: ['#d1d5db', palette.focus], // Grey when not focused, Purple when focused
   });
 
   const animValue = useRef(new Animated.Value(0)).current;
@@ -76,23 +76,24 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
 
   useEffect(() => {
     if (value?.trim()) {
-      // setlabelShifting("top-1 text-xxs");
+      setlabelShifting(true);
     }
-  }, [value])
+  }, [value]);
 
   const bColor = useMemo(
-    () => (errorMessage ? palette.danger  :palette.secondary500),
+    () => (errorMessage ? palette.danger  : palette.secondary500),
     [errorMessage],
   );
 
   return (
-    <Box marginBottom={"md"} >
-       <Animated.View style ={{position:"relative",borderWidth:1, borderRadius:16,marginBottom:1,borderColor: errorMessage ? bColor : borderColor }} >
-        {/* <Text
-          className={` absolute left-4  text-secondary-400 ${labelShifting} ${labelProps}`}>
+    <Box marginBottom={'md'} >
+       <Animated.View style ={{position:'relative',borderWidth:1, borderRadius:16,marginBottom:1,borderColor: errorMessage ? bColor : borderColor }} >
+        <Text
+        style={labelShifting ? {position:'absolute',left:12,top:5,fontSize:12}: {position:'absolute',left:12,top:15,fontSize:14}}
+          // className={` absolute left-4  text-secondary-400 ${labelShifting} ${labelProps}`}
+          >
           {label}
-        </Text> */}
-        {/* </Box> */}
+        </Text>
         <Box {...inputBoxProps}>
           <TextInput
             ref={ref}
@@ -100,6 +101,9 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
             onBlur={event => {
               handleBlur();
               onBlur(event);
+              if (!value?.trim()) {
+                setlabelShifting(false);
+              }
             }}
             autoComplete="off"
             onChangeText={text => {
@@ -107,7 +111,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
             }}
             onFocus={() => {
               handleFocus();
-              // setlabelShifting({"top:1 text-xxs"});
+              setlabelShifting(true);
               onFocus();
             }}
             value={value}
@@ -118,12 +122,12 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
             maxLength={maxLength}
             style={{
               height: 52,
-              color: "#1f2937",
+              color: '#1f2937',
               fontSize: 16,
-              paddingLeft: 16,
+              paddingLeft: 12,
               textAlignVertical: 'bottom',
-              fontWeight: "500", lineHeight: 20,
-              backgroundColor: "transparent",
+              fontWeight: '500', lineHeight: 20,
+              backgroundColor: 'transparent',
               letterSpacing: 0.7,
             }}
             placeholderTextColor={placeholderTextColor}
@@ -135,10 +139,10 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
               onPress={() => {
                 setShowPassword(!showPassword);
               }}
-              style={{position: "absolute", right: 10,top: 20, }}>
+              style={{position: 'absolute', right: 10,top: 20 }}>
               <ImageIcon
-                style={{ height: 13, width: 20 }}
-                name={!showPassword ? "eyeclose" : "eyeopen"}
+                style={{ height: 13, width: 20,tintColor:palette.focus }}
+                name={!showPassword ? 'eyeclose' : 'eyeopen'}
               />
             </TouchableOpacity>
           )}

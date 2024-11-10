@@ -11,6 +11,7 @@ module.exports = {
           '@shared': './src/shared',
           '@assets': './src/assets',
           '@module': './src/module',
+          '@products': './src/module/products',
           '@hymms': './src/module/hymms',
         },
       },

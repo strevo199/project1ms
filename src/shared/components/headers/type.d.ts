@@ -10,7 +10,7 @@ interface HeaderInferface {
     hasBackBtn?: boolean; }
 
 interface LandingHeaderInferface {
-    headerRightComponent?: React.ReactNode;
+    headerLeftComponent?: React.ReactNode;
     headerRightComponent?: React.ReactNode;
     title: string, hasBackBtn: boolean, cancelpress?: () => void;
 }

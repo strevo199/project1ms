@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RootStackParameterList } from './types';
 import SplashScreen from '@shared/components/layout/SplashScreen';
 import LandingScreen from '@shared/components/layout/LandingScreen';
-
+import ProductLanding from '@module/products/ProductLanding';
 
 const Stack = createNativeStackNavigator<RootStackParameterList>();
 
@@ -19,6 +19,7 @@ const RootNavigation : React.FC = () => {
         }}>
         <Stack.Screen component={SplashScreen} name="SplashScreen"/>
         <Stack.Screen component={LandingScreen} name="LandingScreen"/>
+        <Stack.Screen component={ProductLanding} name="ProductLanding"/>
       </Stack.Navigator>
     );
   };

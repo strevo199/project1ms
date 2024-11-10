@@ -13,9 +13,8 @@ import {
 
 
 import { PrimaryButtonProps } from './type';
-import { palette } from '@shared/theme/palette';
-import { Box } from '../layout/Box';
 import { Text } from '@shared/Typography';
+import { Box } from '../layout/Box';
 
 
 

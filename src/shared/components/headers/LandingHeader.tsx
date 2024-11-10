@@ -1,10 +1,3 @@
-/*
- * Copyright (c) 2024, Waseet LLC. All rights reserved.
- * For license. See license.txt
- */
-
-
-
 /**
  * @LandingHeader Component
  *
@@ -12,24 +5,23 @@
  */
 
 
-import React from 'react'
-
-import { Box } from '../layout/Box'
-import { BoldText } from '../Typography'
+import { Text } from '@shared/Typography';
+import React from 'react';
+import { Box } from '../layout/Box';
 
 
 
 const LandingHeader: React.FC<LandingHeaderInferface> = ({ title,headerRightComponent,headerLeftComponent }) => {
 
   return (
-    <Box className=" mb-3 mt-4 flex-row items-center justify-between px-3 ">
+    <Box>
       {headerLeftComponent}
       <Box>
-        <BoldText className=' text-2xl font-semibold' >{title}</BoldText>
+        <Text >{title}</Text>
       </Box>
       {headerRightComponent}
     </Box>
-  )
-}
+  );
+};
 
-export default LandingHeader
+export default LandingHeader;
