@@ -7,6 +7,7 @@ interface HeaderInferface {
     title?: string;
     cancelpress?: () => void;
     useHeaderOne?: boolean;
+    hasCancelBtn?: boolean;
     hasBackBtn?: boolean; }
 
 interface LandingHeaderInferface {

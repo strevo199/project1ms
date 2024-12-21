@@ -3,11 +3,11 @@
  * For license. See license.txt
  */
 
-import React, { ErrorInfo,ReactNode } from "react";
-import { ScrollView, Text } from "react-native";
+import React, { ErrorInfo,ReactNode } from 'react';
+import { ScrollView, Text } from 'react-native';
 
-import FallBack from "./Fallback";
-import { boundaryStyles as styles } from "./styles";
+import FallBack from './Fallback';
+import { boundaryStyles as styles } from './styles';
 
 interface Props {
   children: ReactNode;
@@ -40,8 +40,8 @@ class ErrorBoundary extends React.Component<Props, State> {
     super(props);
     this.state = {
       hasError: false,
-      errorMessage: "",
-      info: "",
+      errorMessage: '',
+      info: '',
     };
   }
 
@@ -49,7 +49,7 @@ class ErrorBoundary extends React.Component<Props, State> {
     this.setState({
       hasError: true,
       errorMessage: error.message,
-      info: info.componentStack || "",
+      info: info.componentStack || '',
     });
   }
 

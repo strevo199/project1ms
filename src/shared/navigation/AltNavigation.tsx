@@ -5,11 +5,11 @@
 
 // import { RefererType } from "@/core/store/slices/appSettings.slice";
 import { createNavigationContainerRef, StackActions } from "@react-navigation/native";
+import { RootStackParameterList } from "./types";
 
 
 
 export const navigationRef = createNavigationContainerRef();
-
 
 
 export const NavReplace = (referer: any):void => {
@@ -24,3 +24,4 @@ export const NavReplace = (referer: any):void => {
     // Console.warn("Navigation reference is not ready");
   }
 }
+export type NavListType = keyof  RootStackParameterList;

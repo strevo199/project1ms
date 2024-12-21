@@ -322,8 +322,6 @@ const lightTheme = createTheme({
       color: 'textColor',
       fontFamily: 'Mulish-Medium',
       fontSize: 16,
-
-      lineHeight: 30,
     },
     medium18: {
       color: 'textColor',

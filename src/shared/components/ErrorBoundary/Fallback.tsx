@@ -3,12 +3,12 @@
  * For license. See license.txt
  */
 
-import React from "react";
-import { Pressable } from "react-native";
-import RNRestart from "react-native-restart";
+import React from 'react';
+import { Pressable } from 'react-native';
+import RNRestart from 'react-native-restart';
 
-import { Box } from "../layout/Box";
-import {MediumText, RegularText } from "../Typography";
+import { Box } from '../layout/Box';
+import { Text } from '@shared/Typography';
 
 
 /**
@@ -26,20 +26,20 @@ const handleRestart = () => {
  * @returns {JSX.Element} The fallback UI to display when an error occurs.
  */
 
-const FallBack : React.FC =()  =>{
+const FallBack : React.FC = ()  =>{
   return (
-    <Box className=" flex flex-1 items-center justify-center">
-      <MediumText className=" my-8 text-xl text-secondary-800" >
+    <Box flex={1} alignItems={"center"} justifyContent={"center"}>
+      <Text marginVertical={"md"} variant={"medium20"}  >
         Oops 😞!
-      </MediumText>
-      <MediumText className=" text-lg text-secondary-800">
+      </Text>
+      <Text variant={"medium20"} >
         We Encountered an error,
-      </MediumText>
+      </Text>
       <Pressable onPress={handleRestart}>
-        <RegularText>Restart the app</RegularText>
+        <Text>Restart the app</Text>
       </Pressable>
     </Box>
   );
-}
+};
 
 export default FallBack;

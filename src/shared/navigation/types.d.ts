@@ -9,6 +9,10 @@ export type RootStackParameterList = {
   SplashScreen: undefined;
   LandingScreen: undefined;
   ProductLanding: undefined;
+  HymmsLanding: undefined;
+  HymmsContentScreen: undefined;
+  HymmsList: undefined;
+  Hymm: undefined;
 };
 
 export type RootNavigationProps<Screen extends keyof RootStackParameterList> =

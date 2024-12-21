@@ -12,64 +12,70 @@
  */
 
 
-import React from 'react'
+import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import { ImageIcon } from '@/src/assets/icons/ImageIcon';
 
-import { NavReplace } from '../../navigations/rootNavigation/AltNavigation';
 import { RootState, useAppSelector } from '../../store';
 import { Box } from '../layout/Box';
-import { MediumText } from '../Typography';
+import { NavReplace } from '@shared/navigation/AltNavigation';
+import { Text } from '@shared/Typography';
+import { ImageIcon } from '@assets/icons/ImageIcon';
 
 
-const HeaderOne : React.FC<HeaderInferface> = ({title,hasBackBtn,cancelpress}) => {
-  const { referer } = useAppSelector((state: RootState) => state.app);
+const HeaderOne : React.FC<HeaderInferface> = ({title,hasBackBtn,cancelpress,hasCancelBtn}) => {
+  const { referer } = useAppSelector((state: RootState) => state.appsettings);
 
   return (
-    <Box className=" mb-3 mt-4 flex-row items-center justify-between px-3 ">
+    <Box flexDirection={'row'} alignItems={'center'} marginTop={'sm'} justifyContent={"space-between"} >
+       <Box flex={1}>
               <TouchableOpacity
-              disabled={hasBackBtn}
+              disabled={!hasBackBtn}
               onPress={() => {
-                if (cancelpress) {
-                  cancelpress()
-                }else{
+                console.log(referer);
+                
 
-                  NavReplace(referer)
-                }
+                  NavReplace(referer);
               }}
                 style={{
                   height: 28,
                   width: 28,
                   opacity: hasBackBtn  ? 1 : 0,
-                  justifyContent: "center",
-                  alignItems: "center",
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}>
-               { <ImageIcon size="sm" name="arrowLeft" />}
+               { <ImageIcon color='primary700' size="md" name="arrowLeft" />}
               </TouchableOpacity>
-              <Box>
-                <MediumText >{title}</MediumText>
+
+       </Box>
+              <Box flex={1} alignItems={'center'}>
+                <Text variant={'bold22'} >{title}</Text>
               </Box>
+              <Box flex={1}>
+
               <TouchableOpacity
               onPress={() => {
                 if (cancelpress) {
-                  cancelpress()
+                  cancelpress();
 
                 }else{
 
-                  NavReplace(referer)
+                  NavReplace(referer);
                 }
               }}
+              disabled={!hasCancelBtn}
                 style={{
                   height: 28,
                   width: 28,
-                  justifyContent: "center",
-                  alignItems: "center",
+                  opacity: hasCancelBtn  ? 1 : 0,
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}>
                 <ImageIcon size="sm" name="cancel" />
               </TouchableOpacity>
+              </Box>
             </Box>
-  )
-}
+  );
+};
 
-export default HeaderOne
+export default HeaderOne;

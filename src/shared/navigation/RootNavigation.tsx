@@ -4,6 +4,10 @@ import { RootStackParameterList } from './types';
 import SplashScreen from '@shared/components/layout/SplashScreen';
 import LandingScreen from '@shared/components/layout/LandingScreen';
 import ProductLanding from '@module/products/ProductLanding';
+import HymmsLanding from '@module/hymms/HymmsLanding';
+import HymmsContentScreen from '@module/hymms/HymmsContentScreen';
+import HymmsList from '@module/hymms/HymmsList';
+import Hymm from '@module/hymms/Hymm';
 
 const Stack = createNativeStackNavigator<RootStackParameterList>();
 
@@ -20,6 +24,10 @@ const RootNavigation : React.FC = () => {
         <Stack.Screen component={SplashScreen} name="SplashScreen"/>
         <Stack.Screen component={LandingScreen} name="LandingScreen"/>
         <Stack.Screen component={ProductLanding} name="ProductLanding"/>
+        <Stack.Screen component={HymmsLanding} name="HymmsLanding"/>
+        <Stack.Screen component={HymmsContentScreen} name="HymmsContentScreen"/>
+        <Stack.Screen component={HymmsList} name="HymmsList"/>
+        <Stack.Screen component={Hymm} name="Hymm"/>
       </Stack.Navigator>
     );
   };
