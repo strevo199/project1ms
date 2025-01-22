@@ -5,6 +5,7 @@ import {Box} from './Box';
 import {Text} from '@shared/Typography';
 import {ImageIconPackType} from '@assets/icons/imageIconPack';
 import {NavReplace} from '@shared/navigation/AltNavigation';
+import SrfValue from '@shared/utilities/functions/SrfValue';
 
 type ItemPlaceProps = {
   item: {
@@ -36,7 +37,7 @@ const ItemPlace = ({item, index, isnumbered}: ItemPlaceProps) => {
           {isnumbered ? (
             <Text variant={'medium16'}>{index + 1}.</Text>
           ) : (
-            <ImageIcon name={item.icon} style={{borderRadius: 20}} size="md" />
+            <ImageIcon name={item.icon} style={{borderRadius: SrfValue(20)}} size="md" />
           )}
         </Box>
         <Box>

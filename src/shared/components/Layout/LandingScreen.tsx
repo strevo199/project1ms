@@ -10,8 +10,9 @@ import { RootNavigationProps } from '@shared/navigation/types';
 import MainLayout from './main/MainLayout';
 import { setUserMode } from '@shared/store/appFunction.slice';
 import { useAppDispatch } from '@shared/store';
+import SrfValue from '@shared/utilities/functions/SrfValue';
 
-const LandingScreen: FC<RootNavigationProps<'LandingScreen'>> = ({ navigation }) => {
+const LandingScreen: FC<RootNavigationProps<'LandingScreen'>> = ({ navigation,route }) => {
   const [translateY] = useState(new Animated.Value(0));
   const [translateX] = useState(new Animated.Value(0));
   const [scale] = useState(new Animated.Value(1));
@@ -23,6 +24,9 @@ const dispatch = useAppDispatch();
     // Start the animation when the component mounts
     startAnimation();
   }, []);
+
+  console.log('--------------',route);
+  
 
   const startAnimation = () => {
     Animated.sequence([
@@ -82,22 +86,22 @@ const dispatch = useAppDispatch();
   return (
     <>
       <StatusBar barStyle={'dark-content'} translucent backgroundColor={palette.transparent} />
-      <MainLayout>
+      <MainLayout >
        {mode !== 'login' && <Animated.Image
           source={imageIconPack.appicon}
           style={{
-            height: 35,
+            height: SrfValue(35),
             alignSelf: 'center',
             top: '55%',
             position: 'absolute',
-            width: 35,
-            borderRadius: 50,
+            width: SrfValue(35),
+            borderRadius: SrfValue(50),
             ...animateStyle1,
           }}
         />}
         <Box flex={1} justifyContent={'flex-end'}>
           {mode === 'landing' && (
-            <Box marginBottom={'lg'} rowGap={'xs'} paddingHorizontal={'md'}>
+            <Box marginBottom={'lg'} rowGap={'xs'} >
               <PrimaryButton onPress={animationToLogin} title="Log in" />
               <PrimaryButton
                 onPress={() => navigation.navigate('ProductLanding')}
@@ -111,8 +115,8 @@ const dispatch = useAppDispatch();
               />
               <PrimaryButton
                  onPress={() => {
-                  dispatch(setUserMode("free"))
-                  navigation.navigate('ProductLanding')
+                  dispatch(setUserMode('free'));
+                  navigation.navigate('ProductLanding');
                 }}
                 btnTitleProps={{ color: 'textColorInverted' }}
                 title="Skip and continue as a guest"

@@ -13,6 +13,7 @@ export type RootStackParameterList = {
   HymmsContentScreen: undefined;
   HymmsList: undefined;
   Hymm: undefined;
+  EventsLanding: undefined;
 };
 
 export type RootNavigationProps<Screen extends keyof RootStackParameterList> =

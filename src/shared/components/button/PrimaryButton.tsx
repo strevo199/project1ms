@@ -3,25 +3,20 @@
  * For license. See license.txt
  */
 
+import React, {useEffect} from 'react';
+import {Animated, Easing, TouchableOpacity} from 'react-native';
 
-import React, { useEffect } from 'react';
-import {
-  Animated,
-  Easing,
-  TouchableOpacity,
-} from 'react-native';
-
-
-import { PrimaryButtonProps } from './type';
-import { Text } from '@shared/Typography';
-import { Box } from '../layout/Box';
-
-
+import {PrimaryButtonProps} from './type';
+import {Text} from '@shared/Typography';
+import {Box} from '../layout/Box';
+import SrfValue from '@shared/utilities/functions/SrfValue';
 
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   disabled,
-  onPress, isLoading,
-  title,btnalign,
+  onPress,
+  isLoading,
+  title,
+  btnalign,
   touchableOpacityProps,
   btnBoxProps,
   btnTitleProps,
@@ -30,16 +25,11 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   const animation2 = new Animated.Value(0);
   const animation3 = new Animated.Value(0);
 
-
   useEffect(() => {
-
     if (isLoading) {
-
       startAnimation();
     }
   }, [isLoading]);
-
-
 
   const startAnimation = () => {
     Animated.loop(
@@ -53,18 +43,18 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
         Animated.timing(animation2, {
           toValue: 1,
           duration: 1000,
-          delay:500,
+          delay: 500,
           useNativeDriver: true,
           easing: Easing.linear,
         }),
         Animated.timing(animation3, {
           toValue: 1,
           duration: 1000,
-          delay:1000,
+          delay: 1000,
           useNativeDriver: true,
           easing: Easing.linear,
         }),
-      ])
+      ]),
     ).start();
   };
 
@@ -82,48 +72,64 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   });
 
   const animateStyle1 = {
-    transform: [
-      { translateY:translateY1 },
-    ],
+    transform: [{translateY: translateY1}],
   };
   const animateStyle2 = {
-    transform: [
-      { translateY:translateY2 },
-    ],
+    transform: [{translateY: translateY2}],
   };
   const animateStyle3 = {
-    transform: [
-      { translateY:translateY3 },
-    ],
+    transform: [{translateY: translateY3}],
   };
   return (
     <TouchableOpacity
       activeOpacity={0.75}
       disabled={disabled || isLoading}
       style={{
-  alignSelf: btnalign,
-  paddingVertical: 5,
-}}
+        alignSelf: btnalign,
+        paddingVertical: SrfValue(5),
+      }}
       onPress={onPress}
       {...touchableOpacityProps}>
       <Box
-      backgroundColor={isLoading ? 'primary400' : "textColorInverted"} borderRadius={'xl'} flexDirection={'row'} justifyContent={'center'} alignItems={"center"} height={48}
-      {...btnBoxProps}
-      >
-        {!isLoading ?
-          <Text variant={'medium16'} color={'default100'} {...btnTitleProps} >
+        backgroundColor={isLoading ? 'primary400' : 'textColorInverted'}
+        borderRadius={'xl'}
+        flexDirection={'row'}
+        justifyContent={'center'}
+        alignItems={'center'}
+        height={SrfValue(48)}
+        {...btnBoxProps}>
+        {!isLoading ? (
+          <Text variant={'medium16'} color={'default100'} {...btnTitleProps}>
             {title}
           </Text>
-          :
-
+        ) : (
           <Box flexDirection={'row'} alignItems={'center'} gap={'xs'}>
-            <Animated.View  style={{height:5,w:5,backgroundColor:"#fff",...animateStyle1}} />
-            <Animated.View style={{height:3,w:3,backgroundColor:"#fff",...animateStyle2}} />
-            <Animated.View style={{height:3,w:3,backgroundColor:"#fff",...animateStyle3}} />
+            <Animated.View
+              style={{
+                height: SrfValue(5),
+                w: SrfValue(5),
+                backgroundColor: '#fff',
+                ...animateStyle1,
+              }}
+            />
+            <Animated.View
+              style={{
+                height: SrfValue(3),
+                w: SrfValue(3),
+                backgroundColor: '#fff',
+                ...animateStyle2,
+              }}
+            />
+            <Animated.View
+              style={{
+                height: SrfValue(3),
+                w: SrfValue(3),
+                backgroundColor: '#fff',
+                ...animateStyle3,
+              }}
+            />
           </Box>
-
-
-        }
+        )}
       </Box>
     </TouchableOpacity>
   );

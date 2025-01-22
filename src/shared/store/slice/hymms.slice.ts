@@ -7,7 +7,7 @@ export type HymmTypes = {
     chorus?: string;
     content: string;
     title: string;
-    lyrics: {label: string; value: string}[];
+    verses: {label: string; value: string}[];
   }[];
   contents: {id: number; title: string}[];
   lastHymmIndex:n2mber;
@@ -18,21 +18,21 @@ export type HymmTypes = {
     content: string;
     chorus?: string;
     title: string;
-    lyrics: {label: string; value: string}[];
+    verses: {label: string; value: string}[];
   };
   previousHymm: {
     id: string;
     hymmnum: number;
     content: string;
     title: string;
-    lyrics: {label: string; value: string}[];
+    verses: {label: string; value: string}[];
   };
   nextHymm: {
     id: string;
     hymmnum: number;
     title: string;
     content: string;
-    lyrics: {label: string; value: string}[];
+    verses: {label: string; value: string}[];
   };
 };
 
@@ -43,7 +43,7 @@ export const initState: HymmTypes = {
       hymmnum: 1,
       content: 'THANKSGIVING',
       title: 'O Workship thou King',
-      lyrics: [
+      verses: [
         {
           label: '1',
           value: 'O worship the King all-glorious above, \nO gratefully sing his power and his love:\nour shield and defender, the Ancient of Days,\npavilioned in splendor and girded with praise.',
@@ -72,7 +72,7 @@ export const initState: HymmTypes = {
       content: 'THANKSGIVING',
       title: 'Join us sing the song of praise',
       chorus: 'Shout all for joy all our brothers Raise ye praises unto God Shout all for joy all our sisters Halle-Halleluiah Praise Him for this our Home of Peace',
-      lyrics: [
+      verses: [
         {
           label: '1',
           value: 'Join us sing the song of praise Halleluyah Oh join us praise the Lord of Host Who saved us up to this day-. halleluyah Oh join us praise the Lord of Host',
@@ -93,7 +93,7 @@ export const initState: HymmTypes = {
       content: 'THANKSGIVING',
       title: 'Thanks we give unto our Saviour',
       chorus: 'Sing His glory Halleluiah Songs of glory shall we sing Sing His glory Halleluiah Sing Hossanah to our King',
-      lyrics: [
+      verses: [
         {
           label: '1',
           value: 'Holy Trinity we beg Thee Father give to us more strength Grant victory unto our Leaders Give them knowledge and wisdom',
@@ -309,21 +309,21 @@ export const initState: HymmTypes = {
     hymmnum: 0,
     content: '',
     title: '',
-    lyrics: [],
+    verses: [],
   },
   nextHymm: {
     id: '',
     hymmnum: 0,
     title: '',
     content: '',
-    lyrics: [],
+    verses: [],
   },
   currentHymm: {
     id: '',
     hymmnum: 0,
     content: '',
     title: '',
-    lyrics: [],
+    verses: [],
   },
   lastHymmIndex: 2,
   firstHymmIndex: 0

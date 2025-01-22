@@ -8,6 +8,7 @@ import HymmsLanding from '@module/hymms/HymmsLanding';
 import HymmsContentScreen from '@module/hymms/HymmsContentScreen';
 import HymmsList from '@module/hymms/HymmsList';
 import Hymm from '@module/hymms/Hymm';
+import EventsLanding from '@module/events/EventsLanding';
 
 const Stack = createNativeStackNavigator<RootStackParameterList>();
 
@@ -28,6 +29,7 @@ const RootNavigation : React.FC = () => {
         <Stack.Screen component={HymmsContentScreen} name="HymmsContentScreen"/>
         <Stack.Screen component={HymmsList} name="HymmsList"/>
         <Stack.Screen component={Hymm} name="Hymm"/>
+        <Stack.Screen component={EventsLanding} name="EventsLanding"/>
       </Stack.Navigator>
     );
   };

@@ -154,7 +154,7 @@ const Hymm: React.FC<RootNavigationProps<'Hymm'>> = ({navigation}) => {
             ListHeaderComponent={renderHeader}
             showsVerticalScrollIndicator={false}
             renderItem={renderVerses}
-            data={currentHymm.lyrics}
+            data={currentHymm.verses}
           />
         </Animated.View>
       </GestureDetector>

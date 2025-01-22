@@ -19,4 +19,12 @@ export const freeappfeature: AppfeatureType[] = [
         togo:'HymmsLanding',
         issubscribed: true,
     },
+    {
+        id: '1',
+        title: 'Events',
+        type:'events',
+        isvisible: true,
+        togo:'EventsLanding',
+        issubscribed: true,
+    },
 ];

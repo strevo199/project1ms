@@ -18,7 +18,7 @@ const LoginComponent = ({backaction}) => {
         }}
         validationSchema={loginValidationSchema}>
         {({ handleSubmit, errors, touched, handleChange, values }) => (
-          <Box  padding={'md'}  height={'100%'}>
+          <Box    height={'100%'}>
             <Box flexDirection={'row'} justifyContent={'space-between'} marginBottom={'md'}>
               <TouchableOpacity onPress={backaction} style={{padding:6,paddingLeft:0}} >
               <ImageIcon name='arrowLeft' size='md' style={{borderRadius:20}} />

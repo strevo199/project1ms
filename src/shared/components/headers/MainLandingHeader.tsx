@@ -14,6 +14,7 @@ import {RootState, useAppDispatch, useAppSelector} from '@shared/store';
 import {toggleTheme} from '@shared/store/appFunction.slice';
 import {palette} from '@shared/theme/palette';
 import {NavReplace} from '@shared/navigation/AltNavigation';
+import SrfValue from '@shared/utilities/functions/SrfValue';
 
 const MainLandingHeader = ({hasBackBtn,title}) => {
   const {theme, referer} = useAppSelector(
@@ -39,9 +40,9 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
           NavReplace(referer);
         }}
         style={{
-          height: 25,
-          width: 25,
-          marginTop: -15,
+          height: SrfValue(25),
+          width: SrfValue(25),
+          marginTop: SrfValue(-15),
           opacity: hasBackBtn ? 1 : 0,
           justifyContent: 'center',
           alignItems: 'center',
@@ -51,7 +52,7 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
 
       <Box justifyContent={'center'} width={'52%'}>
         <SimpleInput
-          inputBoxProps={{height: 42}}
+          inputBoxProps={{height: SrfValue(42)}}
           keyboardType="default"
           onChangeText={() => console.log('search')}
           label="Search feature"
@@ -59,7 +60,7 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
       </Box>
       <Box
         style={{marginTop: -15}}
-        height={45}
+        height={SrfValue(45)}
         width={'33%'}
         flexDirection={'row'}
         justifyContent={'space-between'}
@@ -73,8 +74,8 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
             style={{
               backgroundColor: palette.default300,
               elevation: 3,
-              borderRadius: 15,
-              padding: 8,
+              borderRadius: SrfValue(15),
+              padding: SrfValue(8),
             }}
             onPress={handleAppTheme}>
             <ImageIcon
@@ -84,7 +85,7 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
             />
           </TouchableOpacity>
         </Box>
-        <ImageIcon name="appicon" style={{borderRadius: 20}} size="md" />
+        <ImageIcon name="appicon" style={{borderRadius: SrfValue(20)}} size="md" />
         <Box backgroundColor={'default300'} elevation={3} borderRadius={'md'}>
           <ImageIcon name={'logout'} size="lg" />
         </Box>

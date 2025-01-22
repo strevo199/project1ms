@@ -18,6 +18,7 @@ import { palette } from '@shared/theme/palette';
 import { ImageIcon } from '@assets/icons/ImageIcon';
 import { triggerShakeAnimation } from '@shared/utilities/triggerShakeAnimation';
 import NewErrorText from '@shared/utilities/Error/NewErrorText';
+import SrfValue from '@shared/utilities/functions/SrfValue';
 
 
 
@@ -89,8 +90,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
     <Box marginBottom={'md'} >
        <Animated.View style ={{position:'relative',borderWidth:1, borderRadius:16,marginBottom:1,borderColor: errorMessage ? bColor : borderColor }} >
         <Text
-        style={labelShifting ? {position:'absolute',left:12,top:5,fontSize:12}: {position:'absolute',left:12,top:15,fontSize:14}}
-          // className={` absolute left-4  text-secondary-400 ${labelShifting} ${labelProps}`}
+        style={labelShifting ? {position:'absolute',left:SrfValue(12),top:SrfValue(5),fontSize:SrfValue(12)}: {position:'absolute',left:SrfValue(12),top:SrfValue(15),fontSize:SrfValue(14)}}
           >
           {label}
         </Text>
@@ -121,12 +121,12 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
             autoCorrect={false}
             maxLength={maxLength}
             style={{
-              height: 52,
+              height: SrfValue(52),
               color: '#1f2937',
-              fontSize: 16,
-              paddingLeft: 12,
+              fontSize: SrfValue(16),
+              paddingLeft: SrfValue(12),
               textAlignVertical: 'bottom',
-              fontWeight: '500', lineHeight: 20,
+              fontWeight: '500', lineHeight: SrfValue(20),
               backgroundColor: 'transparent',
               letterSpacing: 0.7,
             }}
@@ -139,9 +139,9 @@ const SimpleInput: React.FC<SimpleInputProps> = ({
               onPress={() => {
                 setShowPassword(!showPassword);
               }}
-              style={{position: 'absolute', right: 10,top: 20 }}>
+              style={{position: 'absolute', right: SrfValue(10),top: SrfValue(20) }}>
               <ImageIcon
-                style={{ height: 13, width: 20,tintColor:palette.focus }}
+                style={{ height: SrfValue(13), width: SrfValue(20),tintColor:palette.focus }}
                 name={!showPassword ? 'eyeclose' : 'eyeopen'}
               />
             </TouchableOpacity>
