@@ -25,7 +25,7 @@ const lightTheme = createTheme({
   },
 
   buttonGradients: {
-    // primary: [palette.secondaryColor, palette.secondary6, palette.primaryColor],
+    // primary: [palette.secondaryColor, palette.secondary6, palette.primary],
     // secondary: [palette.gradientBlueTop, palette.gradientBlueBottom],
     // tatiary: [palette.gradientGreenTop, palette.gradientGreenBottom],
   },
@@ -61,7 +61,7 @@ const lightTheme = createTheme({
       borderRadius: 'sm',
     },
     filled: {
-      backgroundColor: 'primaryColor',
+      backgroundColor: 'primary',
     },
     ghost: {
       backgroundColor: 'paleGrey50',
@@ -76,14 +76,7 @@ const lightTheme = createTheme({
     },
   },
 
-  colors: {
-    ...palette,
-    imageBackgroundTint: '#FAF5FF',
-    mainBackground: '#FFFFFF',
-    textColorInverted: '#1F2937',
-    primarybackground: '#FAF5FF',
-    primarythemecolor: '#0D1148',
-  },
+  colors: palette,
 
   fontSizes: {
     caption: SrfValue(12),

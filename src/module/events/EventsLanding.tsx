@@ -1,12 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import {Box} from '@shared/components/layout/Box';
+import MiniLayoutApp from '@shared/components/layout/main/MiniLayoutApp';
+import {Text} from '@shared/Typography';
 
 const EventsLanding = () => {
   return (
-    <View>
-      <Text>EventsLanding</Text>
-    </View>
-  )
-}
+    <MiniLayoutApp hasBackBtn>
+      <Box>
+        <Text>CalendardApp</Text>
+      </Box>
+    </MiniLayoutApp>
 
-export default EventsLanding
+  );
+};
+
+export default EventsLanding;

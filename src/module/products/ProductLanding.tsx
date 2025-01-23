@@ -11,7 +11,7 @@ import { setReferer } from '@shared/store/appFunction.slice';
 
 type RenderFeatureGateProps = {
   item: AppfeatureType;
-  index: number;
+  index: number;r
   navigation:any;
 };
 
@@ -26,7 +26,7 @@ const RenderFeatureGate = ({item, index,navigation}: RenderFeatureGateProps) => 
       flex={1}
       height={100}>
       <TouchableOpacity onPress={() => navigation.replace('HymmsLanding')} style={{width: '100%',flexWrap:'wrap', height: '100%',padding:4}}>
-        <Text variant={'bold16'} color={'default100'} >{item.label}</Text>
+        <Text variant={'bold16'} color={'gray20'} >{item.label}</Text>
       </TouchableOpacity>
     </Box>
   );

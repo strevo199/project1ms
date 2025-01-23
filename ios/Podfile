@@ -16,33 +16,51 @@ platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
 linkage = ENV['USE_FRAMEWORKS']
-if linkage
+if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-else
-  Pod::UI.puts "Configuring Pod with static linking".green
 end
 
 target 'starapp' do
+  use_frameworks! :linkage => :static
+  SRNFirebaseAsStaticFramework = true
   config = use_native_modules!
 
   use_react_native!(
     :path => config[:reactNativePath],
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/..",
+    :hermes_enabled => true  # Enable Hermes
   )
 
-  pod 'GoogleUtilities', :modular_headers => true
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
 
   target 'starappTests' do
     inherit! :complete
     # Pods for testing
   end
 
-  post_install do |installer|
-    react_native_post_install(
-      installer,
-      config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-    )
+  # Store the config in a global variable to access it later
+  $react_native_config = config
+end # Closing the 'starapp' target block
+
+post_install do |installer|
+  react_native_post_install(
+    installer,
+    $react_native_config[:reactNativePath], # Use the global config
+    :mac_catalyst_enabled => false,
+  )
+
+  # Optimize pod installation
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = min_ios_version_supported
+    end
+    # Fix for Xcode 14 warnings
+    if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
+      target.build_configurations.each do |config|
+        config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
+    end
   end
-end
+end # Closing the 'post_install' block

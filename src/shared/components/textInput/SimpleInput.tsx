@@ -1,5 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 /*
- * Copyright (c) 2024, Waseet LLC. All rights reserved.
+ * Copyright (c) 2025, Stephen Mgbeojikwe. All rights reserved.
  * For license. See license.txt
  */
 

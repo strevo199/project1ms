@@ -27,7 +27,7 @@ const ItemPlace = ({item, index, isnumbered}: ItemPlaceProps) => {
         elevation={1}
         flexDirection={'row'}
         marginVertical={'sm'}
-        backgroundColor={index % 2 ? 'default300' : 'default'}
+        backgroundColor={index % 2 ? 'gray30' : 'gray'}
         paddingVertical={'md'}
         paddingLeft={'md'}
         borderRadius={'xs'}

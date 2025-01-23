@@ -47,10 +47,10 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        {<ImageIcon color="primary700" size="sm" name="arrowLeft" />}
+        {<ImageIcon color='whiteColor' size="sm" name="arrowLeft" />}
       </TouchableOpacity>
 
-      <Box justifyContent={'center'} width={'52%'}>
+      <Box width={'52%'}>
         <SimpleInput
           inputBoxProps={{height: SrfValue(42)}}
           keyboardType="default"
@@ -72,7 +72,7 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
           alignItems={'center'}>
           <TouchableOpacity
             style={{
-              backgroundColor: palette.default300,
+              backgroundColor: palette.gray,
               elevation: 3,
               borderRadius: SrfValue(15),
               padding: SrfValue(8),
@@ -86,7 +86,7 @@ const MainLandingHeader = ({hasBackBtn,title}) => {
           </TouchableOpacity>
         </Box>
         <ImageIcon name="appicon" style={{borderRadius: SrfValue(20)}} size="md" />
-        <Box backgroundColor={'default300'} elevation={3} borderRadius={'md'}>
+        <Box backgroundColor={'gray'} elevation={3} borderRadius={'md'}>
           <ImageIcon name={'logout'} size="lg" />
         </Box>
       </Box>

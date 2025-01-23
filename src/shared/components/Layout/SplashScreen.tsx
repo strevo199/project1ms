@@ -14,7 +14,7 @@ const SplashScreen: FC<RootNavigationProps<'SplashScreen'>> = ({navigation}) => 
   return (
     <>
     <StatusBar hidden />
-    <Box backgroundColor={'splashScreenColor'} alignItems={'center'} flex={1} justifyContent={'center'} >
+    <Box backgroundColor={'primary'} alignItems={'center'} flex={1} justifyContent={'center'} >
         <Image style={{height:50,width:50}}  source={imageIconPack.applogo} />
     </Box>
     </>

@@ -1,5 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 /*
- * Copyright (c) 2024, Waseet LLC. All rights reserved.
+ * Copyright (c) 2025, Stephen Mgbeojikwe. All rights reserved.
  * For license. See license.txt
  */
 
@@ -91,7 +92,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       onPress={onPress}
       {...touchableOpacityProps}>
       <Box
-        backgroundColor={isLoading ? 'primary400' : 'textColorInverted'}
+        backgroundColor={isLoading ? 'primary10' : 'textColorInverted'}
         borderRadius={'xl'}
         flexDirection={'row'}
         justifyContent={'center'}
@@ -99,7 +100,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
         height={SrfValue(48)}
         {...btnBoxProps}>
         {!isLoading ? (
-          <Text variant={'medium16'} color={'default100'} {...btnTitleProps}>
+          <Text variant={'bold16'} letterSpacing={0.7} color={'white'} {...btnTitleProps}>
             {title}
           </Text>
         ) : (

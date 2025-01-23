@@ -15,7 +15,7 @@ const DashboardRender = ({index, item, navigation}) => {
     <Box
         borderRadius={'sm'}
         elevation={2}
-        backgroundColor={'default100'}
+        backgroundColor={'gray20'}
         // flex={1}
         width={60}
         height={60}>

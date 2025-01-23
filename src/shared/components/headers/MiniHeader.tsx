@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const MoreLanding = () => {
+const MiniHeader = () => {
   return (
     <View>
-      <Text>MoreLanding</Text>
+      <Text>MiniHeader</Text>
     </View>
   )
 }
 
-export default MoreLanding
+export default MiniHeader
